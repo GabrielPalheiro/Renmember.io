@@ -24,7 +24,7 @@ Unidade de estimativa: **sessão** ≈ 3 horas de trabalho concentrado.
 **Entregável: `docker compose up` sobe tudo e o CI barra código quebrado**
 
 - [ ] Monorepo: `api/`, `web/`, `docs/`, `infra/`, `.github/`
-- [ ] `.sln` com os 4 projetos + 4 projetos de teste; `package.json` com pnpm
+- [ ] `.sln` com os 4 projetos + 3 projetos de teste (o de `Application` nasce na Fatia 1, ADR 0015); `package.json` com pnpm
 - [ ] `docker compose up` sobe Postgres + API + Web
 - [ ] API com `/health`, OpenAPI e Scalar
 - [ ] Web com shell da aplicação (navegação entre Lista, Kanban, Calendário)
@@ -47,6 +47,7 @@ Unidade de estimativa: **sessão** ≈ 3 horas de trabalho concentrado.
 - [ ] `Reference` (link e nota) e `Category` com cor de token
 - [ ] Global query filter por `OwnerId` + teste de isolamento entre dois usuários
 - [ ] API: criar, editar, concluir, excluir, listar com filtros (status, categoria, período)
+- [ ] `Renmember.Application.UnitTests` criado junto com o primeiro teste de caso de uso
 - [ ] Erros em `ProblemDetails`; validação com FluentValidation
 - [ ] Cliente TypeScript gerado do OpenAPI
 - [ ] Tela `/atividades`: lista, filtros, formulário (React Hook Form + Zod) em painel lateral

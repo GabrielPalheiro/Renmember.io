@@ -167,7 +167,7 @@ api/
     Renmember.Api/             endpoints, composição, ProblemDetails
   tests/
     Renmember.Domain.UnitTests/
-    Renmember.Application.UnitTests/
+    Renmember.Application.UnitTests/    criado na Fatia 1, com o primeiro teste (ADR 0015)
     Renmember.Api.IntegrationTests/     Testcontainers + WebApplicationFactory
     Renmember.ArchitectureTests/
 ```
@@ -306,6 +306,7 @@ Detalhado em `docs/roadmap.md`. Resumo:
 | 012 | Repositório público, aplicação só local | Repositório privado (com ou sem GitHub Pro) | No GitHub Free, rulesets só valem em repositório público; também habilita secret scanning gratuito e serve de portfólio |
 | [013](adr/0013-usar-awesomeassertions.md) | AwesomeAssertions para asserções | FluentAssertions 8+ | FluentAssertions passou a ter licença comercial; o fork é Apache 2.0 com a mesma API |
 | [014](adr/0014-release-please-com-token-dedicado.md) | release-please com PAT fine-grained dedicado | `GITHUB_TOKEN`; bypass no ruleset | PR aberto pelo `GITHUB_TOKEN` não dispara o CI e ficaria bloqueado pelo check `ci` |
+| [015](adr/0015-projeto-de-teste-nasce-com-o-primeiro-teste.md) | Projeto de teste nasce com o primeiro teste | Teste de enfeite; CI aceitando zero testes | Zero testes executados é sempre sinal de defeito, nunca estado normal |
 
 ---
 

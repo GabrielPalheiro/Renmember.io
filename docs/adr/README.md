@@ -14,3 +14,4 @@ As decisões 001 a 012 estão resumidas no blueprint e ganham arquivo próprio n
 |---|---|---|
 | [0013](0013-usar-awesomeassertions.md) | Usar AwesomeAssertions no lugar de FluentAssertions | Aceita |
 | [0014](0014-release-please-com-token-dedicado.md) | Rodar o release-please com um token dedicado | Aceita |
+| [0015](0015-projeto-de-teste-nasce-com-o-primeiro-teste.md) | Criar cada projeto de teste junto com o seu primeiro teste | Aceita |
