@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Renmember.Api/Renmember.Api.csproj" />
+    <Project Path="src/Renmember.Application/Renmember.Application.csproj" />
+    <Project Path="src/Renmember.Domain/Renmember.Domain.csproj" />
+    <Project Path="src/Renmember.Infrastructure/Renmember.Infrastructure.csproj" />
+  </Folder>
+</Solution>
