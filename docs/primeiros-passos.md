@@ -3,6 +3,7 @@
 > Do zero até o repositório no GitHub, protegido e pronto para a Fatia 0.
 > **Ambiente: Windows 11 nativo · PowerShell 7 · VS Code · Docker Desktop.**
 > Repositório: https://github.com/GabrielPalheiro/Renmember.io
+> Pasta local nos exemplos: `D:\Renmember.io` (a do autor). Qualquer caminho curto serve.
 
 ---
 
@@ -18,12 +19,12 @@ winget install Microsoft.WindowsTerminal
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
-Como **Administrador**, habilite caminhos longos e (opcional) exclua `C:\dev` do Defender:
+Como **Administrador**, habilite caminhos longos e (opcional) exclua a pasta do projeto do Defender:
 
 ```powershell
 New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
   -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
-Add-MpPreference -ExclusionPath "C:\dev"
+Add-MpPreference -ExclusionPath "D:\Renmember.io"
 ```
 
 ### 0.2 Ferramentas
@@ -75,9 +76,9 @@ gh auth login
 O pacote `renmember-estrutura-inicial.zip` está em `Downloads`:
 
 ```powershell
-New-Item -ItemType Directory -Path C:\dev -Force
-Expand-Archive -Path "$HOME\Downloads\renmember-estrutura-inicial.zip" -DestinationPath C:\dev
-Set-Location C:\dev\renmember
+Expand-Archive -Path "$HOME\Downloads\renmember-estrutura-inicial.zip" -DestinationPath D:\
+Rename-Item D:\renmember Renmember.io
+Set-Location D:\Renmember.io
 Get-ChildItem -Force
 ```
 
@@ -183,12 +184,47 @@ gh label create feature --color 0E8A16 --description "Funcionalidade nova" --for
 gh label create bug --color D73A4A --description "Defeito" --force
 ```
 
+### 3.5 Token do release-please
+
+Motivo em [ADR 0014](adr/0014-release-please-com-token-dedicado.md). Faça antes do primeiro merge
+do workflow do release-please (Fatia 0).
+
+**Criar o token:** `github.com → foto → Settings → Developer settings → Personal access tokens →
+Fine-grained tokens → Generate new token`
+
+| Campo | Valor |
+|---|---|
+| Token name | `renmember-release-please` |
+| Expiration | 366 dias (anote a data de renovação) |
+| Resource owner | `GabrielPalheiro` |
+| Repository access | **Only select repositories** → `Renmember.io` |
+| Permissions → Repository → Contents | Read and write |
+| Permissions → Repository → Pull requests | Read and write |
+
+Metadata (Read-only) entra sozinha. Gere e **copie o token** — ele só aparece uma vez.
+
+**Guardar como secret**, sem o token passar pelo histórico do terminal:
+
+```powershell
+gh secret set RELEASE_PLEASE_TOKEN --repo GabrielPalheiro/Renmember.io
+# cole o token quando pedir e tecle Enter
+gh secret list --repo GabrielPalheiro/Renmember.io
+```
+
+**Permissões do GitHub Actions:** `Settings → Actions → General → Workflow permissions`:
+mantenha **Read repository contents and packages permissions** e deixe **desmarcado**
+"Allow GitHub Actions to create and approve pull requests". Com o token dedicado, essa opção não é
+necessária.
+
+> Se o release-please falhar com `403` ao criar labels, acrescente **Issues: Read and write** ao
+> token e rode de novo.
+
 ---
 
 ## Fase 4 — Conferir o Claude Code
 
 ```powershell
-Set-Location C:\dev\renmember
+Set-Location D:\Renmember.io
 claude
 ```
 
@@ -224,8 +260,8 @@ E dentro do Claude Code: peça o plano da Fatia 0 a partir de `docs/roadmap.md`,
 |---|---|
 | `pnpm` bloqueado por execution policy | Fase 0.1 |
 | Arquivos todos modificados sem mexer | `git config --global core.autocrlf false` |
-| `path too long` | Caminhos longos (Fase 0.1) + pasta em `C:\dev\renmember` |
+| `path too long` | Caminhos longos (Fase 0.1) + pasta de caminho curto, como `D:\Renmember.io` |
 | `failed to push some refs` no primeiro push | O repositório não estava vazio — use a Fase 2.2b |
 | Push bloqueado por secret scanning | **Rotacione a chave**, só depois limpe o histórico |
 | Testcontainers falha | Abrir o Docker Desktop antes dos testes |
-| Claude Code ignora as regras | Abrir o `claude` dentro de `C:\dev\renmember` |
+| Claude Code ignora as regras | Abrir o `claude` dentro da pasta do repositório |

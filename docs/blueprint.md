@@ -35,7 +35,7 @@ em código, documentação, namespace ou repositório.
 |---|---|
 | Nome do produto | Renmember.io |
 | Repositório | [`GabrielPalheiro/Renmember.io`](https://github.com/GabrielPalheiro/Renmember.io) (público) |
-| Pasta local | `C:\dev\renmember` |
+| Pasta local | `D:\Renmember.io` (pasta do clone; qualquer caminho curto serve) |
 | Namespace .NET | `Renmember.*` |
 | Pacote web | `renmember-web` |
 
@@ -154,7 +154,8 @@ Custo hoje: quase zero. Custo de não fazer: revisar toda consulta do sistema qu
 | Erros | `ProblemDetails` (RFC 9457) | Contrato de erro único para o front |
 | Recorrência | Implementação própria no `Domain` | Escopo limitado (4 frequências), 100% testável por TDD, sem dependência |
 | Logs | Serilog (console estruturado) | OpenTelemetry entra quando houver para onde enviar |
-| Testes | xUnit, FluentAssertions, NSubstitute, Testcontainers, NetArchTest | Postgres real nos testes de integração |
+| Testes | xUnit, AwesomeAssertions, NSubstitute, Testcontainers, NetArchTest | Postgres real nos testes de integração |
+| Cobertura | Microsoft.Testing.Extensions.CodeCoverage | Nativa do Microsoft.Testing.Platform, o runner do `dotnet test` no .NET 10 |
 | Docs da API | OpenAPI nativo + Scalar | API autodocumentada |
 
 ```
@@ -166,7 +167,7 @@ api/
     Renmember.Api/             endpoints, composição, ProblemDetails
   tests/
     Renmember.Domain.UnitTests/
-    Renmember.Application.UnitTests/
+    Renmember.Application.UnitTests/    criado na Fatia 1, com o primeiro teste (ADR 0015)
     Renmember.Api.IntegrationTests/     Testcontainers + WebApplicationFactory
     Renmember.ArchitectureTests/
 ```
@@ -182,8 +183,9 @@ api/
 | Formulários | React Hook Form + Zod | Validação no client espelhando a da API |
 | Kanban | dnd-kit | Drag-and-drop com suporte a teclado |
 | Calendário | FullCalendar (plugins de licença MIT: mês, semana, interação) | Lib pronta, decisão do autor. Conferir licença dos plugins na Fatia 3 |
-| Contrato da API | Cliente TypeScript gerado do OpenAPI | Front e back não divergem em silêncio |
+| Contrato da API | Cliente TypeScript gerado do OpenAPI com openapi-typescript + openapi-fetch | Front e back não divergem em silêncio (ADR 0016) |
 | Testes | Vitest, Testing Library, MSW, Playwright | Unidade, componente com API simulada, E2E |
+| Formatação | Prettier | Um estilo só, verificado no CI |
 
 **Renderização:** a aplicação inteira é interativa e de um usuário — Client Components com
 TanStack Query. Server Components ficam para o shell e páginas estáticas.
@@ -302,6 +304,10 @@ Detalhado em `docs/roadmap.md`. Resumo:
 | 010 | Next.js mesmo sem SEO | Vite + React SPA | Prepara a hospedagem futura; mesma base do Alugarme |
 | 011 | PWA antes de app nativo | React Native, MAUI | Instalável e reaproveita 100% do front; Capacitor depois |
 | 012 | Repositório público, aplicação só local | Repositório privado (com ou sem GitHub Pro) | No GitHub Free, rulesets só valem em repositório público; também habilita secret scanning gratuito e serve de portfólio |
+| [013](adr/0013-usar-awesomeassertions.md) | AwesomeAssertions para asserções | FluentAssertions 8+ | FluentAssertions passou a ter licença comercial; o fork é Apache 2.0 com a mesma API |
+| [014](adr/0014-release-please-com-token-dedicado.md) | release-please com PAT fine-grained dedicado | `GITHUB_TOKEN`; bypass no ruleset | PR aberto pelo `GITHUB_TOKEN` não dispara o CI e ficaria bloqueado pelo check `ci` |
+| [015](adr/0015-projeto-de-teste-nasce-com-o-primeiro-teste.md) | Projeto de teste nasce com o primeiro teste | Teste de enfeite; CI aceitando zero testes | Zero testes executados é sempre sinal de defeito, nunca estado normal |
+| [016](adr/0016-gerar-cliente-com-openapi-typescript.md) | Cliente da API com openapi-typescript + openapi-fetch | orval; @hey-api/openapi-ts | Só tipos gerados, diff de contrato legível, hooks sob controle do projeto |
 
 ---
 

@@ -59,13 +59,19 @@ Nome em português, minúsculo, com hífen, sem acento.
 | `refactor`, `test`, `docs`, `chore`, `ci` | não gera versão |
 
 Escopos válidos: `tasks`, `kanban`, `calendar`, `recurrence`, `reminders`, `categories`,
-`domain`, `api`, `web`, `db`, `ci`, `docs`.
+`domain`, `api`, `web`, `db`, `infra`, `ci`, `deps`, `docs`.
+
+| Escopo | Para |
+|---|---|
+| `infra` | Docker, Docker Compose e demais arquivos de `infra/` |
+| `deps` | Atualização de dependências (usado pelo Dependabot) |
 
 ```
 feat(kanban): permitir reordenar atividades por teclado
 fix(recurrence): cair no ultimo dia do mes quando o dia 31 nao existe
 test(reminders): cobrir adiamento de alerta recorrente
 chore(ci): cachear pacotes do pnpm
+chore(deps): atualizar npgsql para 10.0.4
 ```
 
 Um commit = uma ideia. Como o merge é **squash**, o título do PR vira o commit na `main` —
@@ -141,6 +147,10 @@ PR ────────►├─ db-migrations ┼──► e2e ──► ci
    os `feat` e `fix` no `CHANGELOG.md`
 2. Quando você quiser fechar uma versão, mescla o PR de release
 3. Ele cria a tag (`v0.5.0`), a GitHub Release com as notas e atualiza o `CHANGELOG.md`
+
+O release-please roda com o token do secret `RELEASE_PLEASE_TOKEN`, para que o PR de release
+dispare o CI como qualquer outro ([ADR 0014](adr/0014-release-please-com-token-dedicado.md)).
+O manifesto começa em `0.0.0` e a primeira versão é a `v0.1.0`.
 
 Regra prática: **feche uma versão ao final de cada fatia**. A versão `v1.0.0` é o fim da Fatia 6.
 

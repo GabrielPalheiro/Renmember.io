@@ -48,9 +48,12 @@ Repositório (público): https://github.com/GabrielPalheiro/Renmember.io — a a
 | Formulários | React Hook Form + Zod | |
 | Kanban | dnd-kit | Com suporte a teclado |
 | Calendário | FullCalendar (só plugins MIT) | Estilizado por tokens |
-| Contrato | Cliente TS gerado do OpenAPI | Nunca escrever tipos da API à mão |
-| Testes backend | xUnit, FluentAssertions, NSubstitute, Testcontainers, NetArchTest | |
+| Contrato | Cliente TS gerado do OpenAPI (openapi-typescript + openapi-fetch) | Nunca escrever tipos da API à mão |
+| Logs | Serilog | Console estruturado |
+| Testes backend | xUnit, AwesomeAssertions, NSubstitute, Testcontainers, NetArchTest | |
+| Cobertura backend | Microsoft.Testing.Extensions.CodeCoverage | Nativa do Microsoft.Testing.Platform |
 | Testes front | Vitest, Testing Library, MSW, Playwright | |
+| Formatação front | Prettier | `pnpm format:check` no CI |
 | Versionamento | Conventional Commits + release-please | |
 | CI | GitHub Actions | Ver `docs/contribuindo.md` |
 
@@ -163,7 +166,7 @@ Regras:
 | Sistema | Windows 11 nativo |
 | Terminal | PowerShell 7 no Windows Terminal |
 | Editor | VS Code |
-| Raiz do repositório | `C:\dev\renmember` |
+| Raiz do repositório | `D:\Renmember.io` (pasta do clone; qualquer caminho curto serve) |
 | Docker | Docker Desktop (aberto antes de rodar testes de integração) |
 
 - Comandos em **PowerShell**: `$env:NOME`, caminhos com `\`, scripts `.ps1`
