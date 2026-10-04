@@ -59,13 +59,19 @@ Nome em português, minúsculo, com hífen, sem acento.
 | `refactor`, `test`, `docs`, `chore`, `ci` | não gera versão |
 
 Escopos válidos: `tasks`, `kanban`, `calendar`, `recurrence`, `reminders`, `categories`,
-`domain`, `api`, `web`, `db`, `ci`, `docs`.
+`domain`, `api`, `web`, `db`, `infra`, `ci`, `deps`, `docs`.
+
+| Escopo | Para |
+|---|---|
+| `infra` | Docker, Docker Compose e demais arquivos de `infra/` |
+| `deps` | Atualização de dependências (usado pelo Dependabot) |
 
 ```
 feat(kanban): permitir reordenar atividades por teclado
 fix(recurrence): cair no ultimo dia do mes quando o dia 31 nao existe
 test(reminders): cobrir adiamento de alerta recorrente
 chore(ci): cachear pacotes do pnpm
+chore(deps): atualizar npgsql para 10.0.4
 ```
 
 Um commit = uma ideia. Como o merge é **squash**, o título do PR vira o commit na `main` —
