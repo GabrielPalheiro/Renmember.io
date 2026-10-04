@@ -16,3 +16,4 @@ As decisões 001 a 012 estão resumidas no blueprint e ganham arquivo próprio n
 | [0014](0014-release-please-com-token-dedicado.md) | Rodar o release-please com um token dedicado | Aceita |
 | [0015](0015-projeto-de-teste-nasce-com-o-primeiro-teste.md) | Criar cada projeto de teste junto com o seu primeiro teste | Aceita |
 | [0016](0016-gerar-cliente-com-openapi-typescript.md) | Gerar o cliente da API com openapi-typescript e openapi-fetch | Aceita |
+| [0017](0017-semear-usuario-com-useasyncseeding.md) | Semear o usuário do v1 com UseAsyncSeeding | Aceita |

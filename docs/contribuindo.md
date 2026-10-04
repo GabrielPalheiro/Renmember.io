@@ -180,7 +180,7 @@ Nome em português, no imperativo, descrevendo a mudança: `AdicionarRecorrencia
 | Revise o script SQL publicado como artefato do PR | O SQL é o que roda de verdade, não o C# |
 | **Nunca edite** migration já mesclada na `main` | Ela já foi aplicada em algum banco; corrija com uma nova |
 | Mudança destrutiva em duas etapas (**expand → contract**) | A versão anterior continua funcionando durante a transição |
-| Seeds de dados fixos via `HasData`; dados de exemplo por script separado | Seed de exemplo não pode vazar para produção futura |
+| Dados de referência fixos via `HasData`; dados que dependem de ambiente (como o usuário do v1) via `UseAsyncSeeding` ([ADR 0017](adr/0017-semear-usuario-com-useasyncseeding.md)); dados de exemplo por script separado | Migration só carrega o que é igual em toda máquina; seed de exemplo não pode vazar para produção futura |
 
 ### Expand → contract, na prática
 

@@ -308,6 +308,7 @@ Detalhado em `docs/roadmap.md`. Resumo:
 | [014](adr/0014-release-please-com-token-dedicado.md) | release-please com PAT fine-grained dedicado | `GITHUB_TOKEN`; bypass no ruleset | PR aberto pelo `GITHUB_TOKEN` não dispara o CI e ficaria bloqueado pelo check `ci` |
 | [015](adr/0015-projeto-de-teste-nasce-com-o-primeiro-teste.md) | Projeto de teste nasce com o primeiro teste | Teste de enfeite; CI aceitando zero testes | Zero testes executados é sempre sinal de defeito, nunca estado normal |
 | [016](adr/0016-gerar-cliente-com-openapi-typescript.md) | Cliente da API com openapi-typescript + openapi-fetch | orval; @hey-api/openapi-ts | Só tipos gerados, diff de contrato legível, hooks sob controle do projeto |
+| [017](adr/0017-semear-usuario-com-useasyncseeding.md) | Usuário do v1 semeado com `UseAsyncSeeding` | `HasData` | Fuso configurável por ambiente sem congelar valores na migration; passa pela validação do domínio |
 
 ---
 
