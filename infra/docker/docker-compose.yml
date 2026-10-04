@@ -17,5 +17,28 @@ services:
       timeout: 5s
       retries: 10
 
+  api:
+    build:
+      context: ../..
+      dockerfile: infra/docker/api.Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Development}
+      ConnectionStrings__Renmember: Host=db;Port=5432;Database=${POSTGRES_DB:-renmember};Username=${POSTGRES_USER:-renmember};Password=${POSTGRES_PASSWORD:-renmember_dev};GSS Encryption Mode=Disable
+      SeededUser__TimeZone: ${USER_TIMEZONE:-America/Sao_Paulo}
+    ports:
+      - "${API_PORT:-8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: ../..
+      dockerfile: infra/docker/web.Dockerfile
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    depends_on:
+      - api
+
 volumes:
   db-data:
