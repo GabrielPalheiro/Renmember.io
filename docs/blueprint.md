@@ -154,7 +154,7 @@ Custo hoje: quase zero. Custo de não fazer: revisar toda consulta do sistema qu
 | Erros | `ProblemDetails` (RFC 9457) | Contrato de erro único para o front |
 | Recorrência | Implementação própria no `Domain` | Escopo limitado (4 frequências), 100% testável por TDD, sem dependência |
 | Logs | Serilog (console estruturado) | OpenTelemetry entra quando houver para onde enviar |
-| Testes | xUnit, FluentAssertions, NSubstitute, Testcontainers, NetArchTest | Postgres real nos testes de integração |
+| Testes | xUnit, AwesomeAssertions, NSubstitute, Testcontainers, NetArchTest | Postgres real nos testes de integração |
 | Cobertura | Microsoft.Testing.Extensions.CodeCoverage | Nativa do Microsoft.Testing.Platform, o runner do `dotnet test` no .NET 10 |
 | Docs da API | OpenAPI nativo + Scalar | API autodocumentada |
 
@@ -304,6 +304,7 @@ Detalhado em `docs/roadmap.md`. Resumo:
 | 010 | Next.js mesmo sem SEO | Vite + React SPA | Prepara a hospedagem futura; mesma base do Alugarme |
 | 011 | PWA antes de app nativo | React Native, MAUI | Instalável e reaproveita 100% do front; Capacitor depois |
 | 012 | Repositório público, aplicação só local | Repositório privado (com ou sem GitHub Pro) | No GitHub Free, rulesets só valem em repositório público; também habilita secret scanning gratuito e serve de portfólio |
+| [013](adr/0013-usar-awesomeassertions.md) | AwesomeAssertions para asserções | FluentAssertions 8+ | FluentAssertions passou a ter licença comercial; o fork é Apache 2.0 com a mesma API |
 
 ---
 

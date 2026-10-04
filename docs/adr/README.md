@@ -12,3 +12,4 @@ As decisões 001 a 012 estão resumidas no blueprint e ganham arquivo próprio n
 
 | # | Decisão | Status |
 |---|---|---|
+| [0013](0013-usar-awesomeassertions.md) | Usar AwesomeAssertions no lugar de FluentAssertions | Aceita |

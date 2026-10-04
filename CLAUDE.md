@@ -50,7 +50,7 @@ Repositório (público): https://github.com/GabrielPalheiro/Renmember.io — a a
 | Calendário | FullCalendar (só plugins MIT) | Estilizado por tokens |
 | Contrato | Cliente TS gerado do OpenAPI | Nunca escrever tipos da API à mão |
 | Logs | Serilog | Console estruturado |
-| Testes backend | xUnit, FluentAssertions, NSubstitute, Testcontainers, NetArchTest | |
+| Testes backend | xUnit, AwesomeAssertions, NSubstitute, Testcontainers, NetArchTest | |
 | Cobertura backend | Microsoft.Testing.Extensions.CodeCoverage | Nativa do Microsoft.Testing.Platform |
 | Testes front | Vitest, Testing Library, MSW, Playwright | |
 | Formatação front | Prettier | `pnpm format:check` no CI |
