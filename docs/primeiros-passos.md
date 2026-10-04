@@ -3,6 +3,7 @@
 > Do zero até o repositório no GitHub, protegido e pronto para a Fatia 0.
 > **Ambiente: Windows 11 nativo · PowerShell 7 · VS Code · Docker Desktop.**
 > Repositório: https://github.com/GabrielPalheiro/Renmember.io
+> Pasta local nos exemplos: `D:\Renmember.io` (a do autor). Qualquer caminho curto serve.
 
 ---
 
@@ -18,12 +19,12 @@ winget install Microsoft.WindowsTerminal
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
-Como **Administrador**, habilite caminhos longos e (opcional) exclua `C:\dev` do Defender:
+Como **Administrador**, habilite caminhos longos e (opcional) exclua a pasta do projeto do Defender:
 
 ```powershell
 New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
   -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
-Add-MpPreference -ExclusionPath "C:\dev"
+Add-MpPreference -ExclusionPath "D:\Renmember.io"
 ```
 
 ### 0.2 Ferramentas
@@ -75,9 +76,9 @@ gh auth login
 O pacote `renmember-estrutura-inicial.zip` está em `Downloads`:
 
 ```powershell
-New-Item -ItemType Directory -Path C:\dev -Force
-Expand-Archive -Path "$HOME\Downloads\renmember-estrutura-inicial.zip" -DestinationPath C:\dev
-Set-Location C:\dev\renmember
+Expand-Archive -Path "$HOME\Downloads\renmember-estrutura-inicial.zip" -DestinationPath D:\
+Rename-Item D:\renmember Renmember.io
+Set-Location D:\Renmember.io
 Get-ChildItem -Force
 ```
 
@@ -188,7 +189,7 @@ gh label create bug --color D73A4A --description "Defeito" --force
 ## Fase 4 — Conferir o Claude Code
 
 ```powershell
-Set-Location C:\dev\renmember
+Set-Location D:\Renmember.io
 claude
 ```
 
@@ -224,8 +225,8 @@ E dentro do Claude Code: peça o plano da Fatia 0 a partir de `docs/roadmap.md`,
 |---|---|
 | `pnpm` bloqueado por execution policy | Fase 0.1 |
 | Arquivos todos modificados sem mexer | `git config --global core.autocrlf false` |
-| `path too long` | Caminhos longos (Fase 0.1) + pasta em `C:\dev\renmember` |
+| `path too long` | Caminhos longos (Fase 0.1) + pasta de caminho curto, como `D:\Renmember.io` |
 | `failed to push some refs` no primeiro push | O repositório não estava vazio — use a Fase 2.2b |
 | Push bloqueado por secret scanning | **Rotacione a chave**, só depois limpe o histórico |
 | Testcontainers falha | Abrir o Docker Desktop antes dos testes |
-| Claude Code ignora as regras | Abrir o `claude` dentro de `C:\dev\renmember` |
+| Claude Code ignora as regras | Abrir o `claude` dentro da pasta do repositório |

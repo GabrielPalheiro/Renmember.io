@@ -35,7 +35,7 @@ em código, documentação, namespace ou repositório.
 |---|---|
 | Nome do produto | Renmember.io |
 | Repositório | [`GabrielPalheiro/Renmember.io`](https://github.com/GabrielPalheiro/Renmember.io) (público) |
-| Pasta local | `C:\dev\renmember` |
+| Pasta local | `D:\Renmember.io` (pasta do clone; qualquer caminho curto serve) |
 | Namespace .NET | `Renmember.*` |
 | Pacote web | `renmember-web` |
 
