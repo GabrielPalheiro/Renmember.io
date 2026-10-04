@@ -22,6 +22,12 @@
 |---|---|---|
 | **Usuário** (`User`) | Dono das atividades. No v1 existe um só; o modelo já suporta vários | Cliente, Conta, Owner (como classe) |
 
+| Campo | Regra |
+|---|---|
+| `Id` | `Guid` versão 7 |
+| `Name` | Obrigatório, até 100 caracteres |
+| `TimeZone` | Identificador **IANA** (ex.: `America/Sao_Paulo`), validado no domínio. É o fuso do usuário |
+
 > `OwnerId` é o **nome da coluna** que liga uma entidade ao `User`. O conceito continua sendo `User`.
 
 ---
