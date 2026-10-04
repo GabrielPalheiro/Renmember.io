@@ -43,7 +43,7 @@ Repositório (público): https://github.com/GabrielPalheiro/Renmember.io — a a
 | Banco | PostgreSQL 17 | Container local via Docker Compose |
 | Validação | FluentValidation | Erros em `ProblemDetails` |
 | Front-end | Next.js (App Router) + React + TypeScript `strict` | |
-| Estilo | Tailwind CSS + shadcn/ui | Só tokens do design system |
+| Estilo | Tailwind CSS + shadcn/ui (preset `base-nova`, sobre Base UI) | Só tokens do design system |
 | Estado servidor | TanStack Query | Atualização otimista no kanban |
 | Formulários | React Hook Form + Zod | |
 | Kanban | dnd-kit | Com suporte a teclado |
