@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore(ci)
+
+# Os ecossistemas "nuget" (api/) e "npm" (web/) entram na Fatia 0,
+# quando os projetos forem criados.

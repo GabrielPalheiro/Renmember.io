@@ -1,0 +1,29 @@
+name: Funcionalidade
+description: Algo novo que o Renmember.io deve fazer
+title: "feat: "
+labels: ["feature"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema
+      description: Que situação do dia a dia isto resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: comportamento
+    attributes:
+      label: Comportamento esperado
+      description: Como deve funcionar, do ponto de vista do usuário
+    validations:
+      required: true
+  - type: input
+    id: fatia
+    attributes:
+      label: Fatia do roadmap
+      placeholder: "Fatia 2 — Kanban, ou Backlog"
+  - type: textarea
+    id: pronto
+    attributes:
+      label: Critérios de pronto
+      description: Como saber que terminou
