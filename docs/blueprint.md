@@ -155,6 +155,7 @@ Custo hoje: quase zero. Custo de não fazer: revisar toda consulta do sistema qu
 | Recorrência | Implementação própria no `Domain` | Escopo limitado (4 frequências), 100% testável por TDD, sem dependência |
 | Logs | Serilog (console estruturado) | OpenTelemetry entra quando houver para onde enviar |
 | Testes | xUnit, FluentAssertions, NSubstitute, Testcontainers, NetArchTest | Postgres real nos testes de integração |
+| Cobertura | Microsoft.Testing.Extensions.CodeCoverage | Nativa do Microsoft.Testing.Platform, o runner do `dotnet test` no .NET 10 |
 | Docs da API | OpenAPI nativo + Scalar | API autodocumentada |
 
 ```
@@ -184,6 +185,7 @@ api/
 | Calendário | FullCalendar (plugins de licença MIT: mês, semana, interação) | Lib pronta, decisão do autor. Conferir licença dos plugins na Fatia 3 |
 | Contrato da API | Cliente TypeScript gerado do OpenAPI | Front e back não divergem em silêncio |
 | Testes | Vitest, Testing Library, MSW, Playwright | Unidade, componente com API simulada, E2E |
+| Formatação | Prettier | Um estilo só, verificado no CI |
 
 **Renderização:** a aplicação inteira é interativa e de um usuário — Client Components com
 TanStack Query. Server Components ficam para o shell e páginas estáticas.

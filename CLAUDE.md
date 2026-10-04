@@ -49,8 +49,11 @@ Repositório (público): https://github.com/GabrielPalheiro/Renmember.io — a a
 | Kanban | dnd-kit | Com suporte a teclado |
 | Calendário | FullCalendar (só plugins MIT) | Estilizado por tokens |
 | Contrato | Cliente TS gerado do OpenAPI | Nunca escrever tipos da API à mão |
+| Logs | Serilog | Console estruturado |
 | Testes backend | xUnit, FluentAssertions, NSubstitute, Testcontainers, NetArchTest | |
+| Cobertura backend | Microsoft.Testing.Extensions.CodeCoverage | Nativa do Microsoft.Testing.Platform |
 | Testes front | Vitest, Testing Library, MSW, Playwright | |
+| Formatação front | Prettier | `pnpm format:check` no CI |
 | Versionamento | Conventional Commits + release-please | |
 | CI | GitHub Actions | Ver `docs/contribuindo.md` |
 
