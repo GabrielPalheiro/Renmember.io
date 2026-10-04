@@ -48,7 +48,7 @@ Repositório (público): https://github.com/GabrielPalheiro/Renmember.io — a a
 | Formulários | React Hook Form + Zod | |
 | Kanban | dnd-kit | Com suporte a teclado |
 | Calendário | FullCalendar (só plugins MIT) | Estilizado por tokens |
-| Contrato | Cliente TS gerado do OpenAPI | Nunca escrever tipos da API à mão |
+| Contrato | Cliente TS gerado do OpenAPI (openapi-typescript + openapi-fetch) | Nunca escrever tipos da API à mão |
 | Logs | Serilog | Console estruturado |
 | Testes backend | xUnit, AwesomeAssertions, NSubstitute, Testcontainers, NetArchTest | |
 | Cobertura backend | Microsoft.Testing.Extensions.CodeCoverage | Nativa do Microsoft.Testing.Platform |
