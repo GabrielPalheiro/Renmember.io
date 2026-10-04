@@ -30,20 +30,41 @@ preparada para virar um serviço online multiusuário.
 
 ## Como rodar
 
-> Disponível a partir da Fatia 0.
-
 Pré-requisito: [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
 ```powershell
 git clone https://github.com/GabrielPalheiro/Renmember.io.git
 cd Renmember.io
-docker compose -f infra\docker\docker-compose.yml up
+docker compose -f infra\docker\docker-compose.yml up --build
 ```
 
 | Serviço | Endereço |
 |---|---|
 | Aplicação | http://localhost:3000 |
 | API + documentação (Scalar) | http://localhost:8080/scalar |
+| Saúde da API e do banco | http://localhost:8080/health |
+
+O compose já tem valores padrão de desenvolvimento. Para mudar portas, senha do banco ou o fuso do
+usuário, copie o `.env.example` e passe o arquivo explicitamente (o compose procura o `.env` na
+pasta do `docker-compose.yml`, não na raiz):
+
+```powershell
+Copy-Item .env.example .env
+docker compose -f infra\docker\docker-compose.yml --env-file .env up --build
+```
+
+Na primeira subida, a API aplica as migrations e cria o usuário do v1.
+
+### Desenvolvimento sem containers para API e Web
+
+Requer .NET SDK 10 e Node 24 com pnpm (ver [primeiros passos](docs/primeiros-passos.md)).
+
+```powershell
+docker compose -f infra\docker\docker-compose.yml up -d db   # só o Postgres
+dotnet tool restore
+dotnet run --project api\src\Renmember.Api                    # http://localhost:8080
+Set-Location web; pnpm install; pnpm dev                      # http://localhost:3000
+```
 
 ## Documentação
 

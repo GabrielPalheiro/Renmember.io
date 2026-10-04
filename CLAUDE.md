@@ -218,7 +218,15 @@ Set-Location ..
 
 ## 9. Estado atual
 
-**Fatia atual: 0 — Fundação.** Nenhum código existe ainda; só a documentação.
+**Fatia atual: 0 — Fundação**, dividida em três PRs:
+
+- **PR A** — aplicação rodando em `docker compose up`: API (`/health`, OpenAPI, Scalar), usuário
+  semeado, `ICurrentUser`, shell do Next.js
+- **PR B** — testes de arquitetura (NetArchTest) e smoke com Testcontainers
+- **PR C** — CI, release-please e Dependabot
+
+Exceção da Fatia 0, decidida pelo autor: todos os passos são **Delegado** e os testes chegam no
+PR B. A seção 4.1 e o TDD valem normalmente a partir da Fatia 1.
 
 Decisões abertas (ver blueprint, seção 9), a resolver até a Fatia 2:
 **D2** recorrentes no kanban · **D3** colunas do kanban fixas ou personalizáveis.
