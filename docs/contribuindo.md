@@ -148,6 +148,10 @@ PR ────────►├─ db-migrations ┼──► e2e ──► ci
 2. Quando você quiser fechar uma versão, mescla o PR de release
 3. Ele cria a tag (`v0.5.0`), a GitHub Release com as notas e atualiza o `CHANGELOG.md`
 
+O release-please roda com o token do secret `RELEASE_PLEASE_TOKEN`, para que o PR de release
+dispare o CI como qualquer outro ([ADR 0014](adr/0014-release-please-com-token-dedicado.md)).
+O manifesto começa em `0.0.0` e a primeira versão é a `v0.1.0`.
+
 Regra prática: **feche uma versão ao final de cada fatia**. A versão `v1.0.0` é o fim da Fatia 6.
 
 Durante `0.x`, `feat!` sobe minor (configuração `bump-minor-pre-major`) — mudança incompatível

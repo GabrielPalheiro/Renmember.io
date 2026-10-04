@@ -184,6 +184,41 @@ gh label create feature --color 0E8A16 --description "Funcionalidade nova" --for
 gh label create bug --color D73A4A --description "Defeito" --force
 ```
 
+### 3.5 Token do release-please
+
+Motivo em [ADR 0014](adr/0014-release-please-com-token-dedicado.md). Faça antes do primeiro merge
+do workflow do release-please (Fatia 0).
+
+**Criar o token:** `github.com → foto → Settings → Developer settings → Personal access tokens →
+Fine-grained tokens → Generate new token`
+
+| Campo | Valor |
+|---|---|
+| Token name | `renmember-release-please` |
+| Expiration | 366 dias (anote a data de renovação) |
+| Resource owner | `GabrielPalheiro` |
+| Repository access | **Only select repositories** → `Renmember.io` |
+| Permissions → Repository → Contents | Read and write |
+| Permissions → Repository → Pull requests | Read and write |
+
+Metadata (Read-only) entra sozinha. Gere e **copie o token** — ele só aparece uma vez.
+
+**Guardar como secret**, sem o token passar pelo histórico do terminal:
+
+```powershell
+gh secret set RELEASE_PLEASE_TOKEN --repo GabrielPalheiro/Renmember.io
+# cole o token quando pedir e tecle Enter
+gh secret list --repo GabrielPalheiro/Renmember.io
+```
+
+**Permissões do GitHub Actions:** `Settings → Actions → General → Workflow permissions`:
+mantenha **Read repository contents and packages permissions** e deixe **desmarcado**
+"Allow GitHub Actions to create and approve pull requests". Com o token dedicado, essa opção não é
+necessária.
+
+> Se o release-please falhar com `403` ao criar labels, acrescente **Issues: Read and write** ao
+> token e rode de novo.
+
 ---
 
 ## Fase 4 — Conferir o Claude Code

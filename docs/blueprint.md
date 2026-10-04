@@ -305,6 +305,7 @@ Detalhado em `docs/roadmap.md`. Resumo:
 | 011 | PWA antes de app nativo | React Native, MAUI | Instalável e reaproveita 100% do front; Capacitor depois |
 | 012 | Repositório público, aplicação só local | Repositório privado (com ou sem GitHub Pro) | No GitHub Free, rulesets só valem em repositório público; também habilita secret scanning gratuito e serve de portfólio |
 | [013](adr/0013-usar-awesomeassertions.md) | AwesomeAssertions para asserções | FluentAssertions 8+ | FluentAssertions passou a ter licença comercial; o fork é Apache 2.0 com a mesma API |
+| [014](adr/0014-release-please-com-token-dedicado.md) | release-please com PAT fine-grained dedicado | `GITHUB_TOKEN`; bypass no ruleset | PR aberto pelo `GITHUB_TOKEN` não dispara o CI e ficaria bloqueado pelo check `ci` |
 
 ---
 
