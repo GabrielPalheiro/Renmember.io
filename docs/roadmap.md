@@ -24,10 +24,12 @@ Unidade de estimativa: **sessão** ≈ 3 horas de trabalho concentrado.
 **Entregável: `docker compose up` sobe tudo e o CI barra código quebrado**
 
 - [ ] Monorepo: `api/`, `web/`, `docs/`, `infra/`, `.github/`
-- [ ] `.sln` com os 4 projetos + 3 projetos de teste (o de `Application` nasce na Fatia 1, ADR 0015); `package.json` com pnpm
+- [ ] `.slnx` com os 4 projetos + 3 projetos de teste (o de `Application` nasce na Fatia 1, ADR 0015)
+- [ ] `web/package.json` com pnpm fixado em `packageManager` (sem workspace na raiz)
 - [ ] `docker compose up` sobe Postgres + API + Web
 - [ ] API com `/health`, OpenAPI e Scalar
-- [ ] Web com shell da aplicação (navegação entre Lista, Kanban, Calendário)
+- [ ] Web com shell da aplicação (navegação entre Lista, Kanban, Calendário), usando as
+      variáveis padrão do shadcn/ui como tokens provisórios
 - [ ] Primeira migration: tabela `Users` + usuário semeado; `ICurrentUser` resolvendo esse usuário
 - [ ] Teste de integração com Testcontainers rodando (smoke da API contra Postgres real)
 - [ ] Teste de arquitetura (NetArchTest) verificando a regra de dependência
@@ -51,6 +53,7 @@ Unidade de estimativa: **sessão** ≈ 3 horas de trabalho concentrado.
 - [ ] Erros em `ProblemDetails`; validação com FluentValidation
 - [ ] Cliente TypeScript gerado do OpenAPI
 - [ ] Tela `/atividades`: lista, filtros, formulário (React Hook Form + Zod) em painel lateral
+- [ ] Tokens do design system documentados em `docs/design-system/`, substituindo os provisórios
 - [ ] Estados vazios, de carregamento e de erro desenhados
 - [ ] E2E: criar, editar e concluir uma atividade
 
