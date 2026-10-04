@@ -119,6 +119,21 @@ Tudo em `docs/contribuindo.md`. O essencial:
 - Squash merge; nenhum push direto na `main`
 - Migration no mesmo PR da feature; migration mesclada **nunca** é editada
 
+## 4.1 Modo de aprendizado
+
+O autor quer aprender construindo. Cada passo do plano é marcado com um de três modos:
+
+| Modo | Quem escreve | Papel do Claude |
+|---|---|---|
+| **Manual** | O autor | Explicar o conceito e o porquê, indicar o comando ou a API a pesquisar, revisar depois. **Não escrever o código nem rodar o comando** |
+| **Par** | O autor, guiado | Mostrar o trecho em partes pequenas, explicando cada uma, para o autor digitar e adaptar |
+| **Delegado** | O Claude | Implementar e, ao final, explicar em poucas linhas o que foi feito e o que vale ler no código |
+
+Regras:
+- Na dúvida, pergunte o modo antes de começar o passo.
+- Ao revisar código do autor, aponte problemas e explique, mas não reescreva o arquivo inteiro: sugira a mudança e deixe o autor aplicar.
+- Prefira perguntas que levem o autor à resposta ("o que acontece com o filtro de `OwnerId` se...?") a respostas prontas, quando o modo for Manual.
+
 ---
 
 ## 5. O que nunca fazer
